@@ -1,8 +1,11 @@
-function App() {
+import Footer from "./components/Footer/Footer"
+import Header from "./components/Header/Header"
 
+function App() {
   return (
     <>
-     <h1 className='text-black'>Hello World!</h1>
+    <Header />
+    <Footer />
     </>
   )
 }
