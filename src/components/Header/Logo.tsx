@@ -2,6 +2,6 @@
 
 export default function Logo() {
   return (
-    <div>Logo</div>
+    <div><h5 className="font-display">Logo</h5></div>
   )
 }

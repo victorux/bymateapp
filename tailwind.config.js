@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {
+  colors: {
       primary: {
         50: '#FFEDF0',
         75: '#FFB3C1',
@@ -35,6 +35,10 @@ export default {
       },
       black: '#181B2A',
       white: '#FFFFFF'
+    },
+  fontFamily: {
+      'display': ['Montserrat', 'sans-serif'],
+      'body': ["Inter", 'sans-serif']
     },
   extend: {},
   },
