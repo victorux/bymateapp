@@ -5,7 +5,7 @@ import UserMenu from "./UserMenu"
 
 export default function Header() {
   return (
-    <div className="container bg-primary-50">
+    <div>
         <Logo />
         <SearchPanel />
         <UserMenu />
