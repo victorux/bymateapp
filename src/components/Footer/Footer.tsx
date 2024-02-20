@@ -24,7 +24,6 @@ const Footer = () => {
           <a href='#'>Testimonials</a>
           <a href='#'>Sitemap</a>
         </div>
-        
         <span>© 2024 bymate LTD.</span>
       </div>
     </footer>
