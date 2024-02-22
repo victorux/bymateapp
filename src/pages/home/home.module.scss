@@ -1,0 +1,22 @@
+// Hero Section
+.heroSection {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  @apply py-80;
+  text-align: center;
+  z-index: -2;
+
+  ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    z-index: -1;
+  }
+}
