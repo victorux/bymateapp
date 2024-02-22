@@ -16,7 +16,7 @@ export default function HeroSection({ title, subtitle, image, popularCities }: H
                 <div className='flex justify-center mt-12 gap-8 flex-wrap'>
                     {
                         popularCities.map((city, index) => (
-                            <div key={index} className='rounded-2xl border-opacity-50 px-8 py-4 flex flex-col gap-2 text-white backdrop-blur-md shadow-xl border-[1px] border-white border-opacity-20'>
+                            <div key={index} className='rounded-2xl border-opacity-50 px-8 py-4 flex flex-col gap-2 text-white backdrop-blur-md shadow-xl border-[1px] border-white'>
                                 <h5 className='text-white'>{city.name}</h5>
                                 <a href={city.roomatesLink}>Rooms</a>
                                 <a href={city.roomatesLink}>Roommates</a>
