@@ -1,6 +1,7 @@
 import HeroSection from "./HeroSection";
 import bg from "../../assets/img/bg.jpg";
 import FeaturedSection from "./FeaturedSection";
+import AdvertSection from "./AdvertSection";
 
 const data = {
   title: "Looking for a room or a roommate? We've got you covered!",
@@ -32,6 +33,7 @@ export default function Home() {
     <>
       <HeroSection title={data.title} subtitle={data.subtitle} image={bg} popularCities={data.popularCities} />
       <FeaturedSection />
+      <AdvertSection />
     </>
   )
 }

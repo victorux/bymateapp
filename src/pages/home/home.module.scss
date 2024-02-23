@@ -1,9 +1,16 @@
+
+// Section Heading
+.section__heading {
+  @apply text-center text-5xl font-display font-semibold;
+}
+
 // Hero Section
 .hero__section {
+  overflow: hidden;
   position: relative;
   background-position: center;
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   height: auto;
   @apply py-80;
   text-align: center;
@@ -29,3 +36,9 @@
   @apply text-white mt-4 font-body text-lg tracking-wide;
 }
 
+
+// Adverts Section
+
+.ad__card {
+  @apply flex flex-col gap-6 py-10 px-6 shadow-lg rounded-lg max-w-80 text-center;
+}
