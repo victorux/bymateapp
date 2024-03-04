@@ -1,0 +1,29 @@
+.Button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    width: auto;
+
+    &.primary {
+        @apply bg-primary-200 text-white;
+        color: #fff;
+    }
+
+    &.secondary {
+        @apply bg-neutral-500 text-neutral-100;
+        color: #fff;
+    }
+
+    &.small {
+        @apply text-sm py-2 px-4;
+    }
+    
+    &.medium {
+        @apply text-base py-4 px-8;
+    }
+    
+    &.large {
+        @apply text-xl py-6 px-10;
+    }
+}

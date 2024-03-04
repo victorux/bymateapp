@@ -40,5 +40,5 @@
 // Adverts Section
 
 .ad__card {
-  @apply flex flex-col gap-6 py-10 px-6 shadow-lg rounded-lg max-w-80 text-center;
+  @apply flex items-center flex-col gap-6 py-10 px-6 shadow-lg rounded-lg max-w-80 text-center;
 }
