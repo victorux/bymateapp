@@ -22,9 +22,9 @@ function App() {
   return (
     <>
     <Header />
-    <body>
+    <div>
       <RouterProvider router={router} />
-    </body>
+    </div>
     <Footer />
     </>
   )

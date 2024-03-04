@@ -9,6 +9,8 @@ interface ButtonProps {
   color?: 'primary' | 'secondary';
   disabled?: boolean;
   border?: boolean;
+  icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
 }
 
 function Button({
@@ -17,12 +19,16 @@ function Button({
     size,
     color,
     disabled,
-    border
+    border,
+    icon,
+    iconPosition = 'left'
 }: ButtonProps) {
     const classNames = `${styles.Button} ${styles[size || 'medium']} ${styles[color || 'transparent']} ${styles[border ? 'border' : 'no-border']} ${disabled ? styles.disabled : ''}`;
     return (
         <button type='button' className={classNames} onClick={onClick} disabled={disabled}>
+            {icon && iconPosition === 'left' && <span className={styles.icon}>{icon}</span>}
             {children}
+            {icon && iconPosition === 'right' && <span className={styles.icon}>{icon}</span>}
         </button>
     )
 }
