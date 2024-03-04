@@ -13,7 +13,7 @@ export default function AdvertSection() {
             <div className={styles.ad__card}>
                 <h5>Need a room?</h5>
                 <p>Post a free ad to let people know you're looking!</p>
-                <Button onClick={handleAdPost}>Post a free ad</Button>
+                <Button onClick={handleAdPost} color="primary">Post a free ad</Button>
             </div>
             <div className={styles.ad__card}>
                 <h5>Have a room to rent?</h5>
