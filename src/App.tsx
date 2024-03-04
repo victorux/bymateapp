@@ -1,7 +1,7 @@
-import Footer from "./components/Footer/Footer"
-import Header from "./components/Header/Header"
-import ErrorPage from "./pages/error-page";
-import Home from "./pages/home/Home"
+import Footer from "./components/layout/Footer/Footer"
+import Header from "./components/layout/Header/Header"
+import ErrorPage from "./components/pages/error-page";
+import Home from "./components/pages/home/Home"
 
 import {
   createBrowserRouter,

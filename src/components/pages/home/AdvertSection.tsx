@@ -1,4 +1,4 @@
-import Button from "../../components/Buttons/Button";
+import Button from "../../common/Buttons/Button";
 import styles from "./home.module.scss";
 
 export default function AdvertSection() {

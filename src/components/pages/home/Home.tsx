@@ -1,5 +1,5 @@
 import HeroSection from "./HeroSection";
-import bg from "../../assets/img/bg.jpg";
+import bg from "../../../assets/img/bg.jpg";
 import FeaturedSection from "./FeaturedSection";
 import AdvertSection from "./AdvertSection";
 
