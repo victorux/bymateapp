@@ -7,7 +7,7 @@ export default function AdvertSection() {
   }
 
   return (
-    <div className="container mt-20">
+    <div className="container my-20">
         <div className={styles.section__heading}>Rooms: List Yours or Find One</div>
         <div className="flex justify-center gap-20 mt-8">
             <div className={styles.ad__card}>
