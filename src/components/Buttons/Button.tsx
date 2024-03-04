@@ -8,6 +8,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary';
   disabled?: boolean;
+  border?: boolean;
 }
 
 function Button({
@@ -15,9 +16,10 @@ function Button({
     onClick,
     size,
     color,
-    disabled
+    disabled,
+    border
 }: ButtonProps) {
-        const classNames = `${styles.Button} ${styles[size || 'medium']} ${styles[color || 'primary']}`;
+    const classNames = `${styles.Button} ${styles[size || 'medium']} ${styles[color || 'transparent']} ${styles[border ? 'border' : 'no-border']} ${disabled ? styles.disabled : ''}`;
     return (
         <button type='button' className={classNames} onClick={onClick} disabled={disabled}>
             {children}

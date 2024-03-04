@@ -7,12 +7,19 @@
 
     &.primary {
         @apply bg-primary-200 text-white;
-        color: #fff;
     }
 
     &.secondary {
-        @apply bg-neutral-500 text-neutral-100;
-        color: #fff;
+        @apply bg-neutral-500 text-white
+    }
+
+    &.transparent {
+        @apply text-neutral-500;
+        background-color: transparent
+    }
+
+    &.border {
+        border: 1px solid gray;
     }
 
     &.small {
