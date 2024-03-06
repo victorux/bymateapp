@@ -20,7 +20,10 @@ function ListingCard({ listing }: ListingCardProps) {
           <span>{listing.propertyType}</span>
           <span>{listing.available}</span>
         </div>
-        <p className={styles.card__price}>€{listing.price}</p>
+        <div className="flex flex-row items-baseline gap-4 flex-wrap font-medium mt-2">
+          <p className={styles.card__price}>€{listing.price}/mo</p>
+          <span>Bills included</span>
+        </div>
       </div>
     </div>
   )

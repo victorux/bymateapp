@@ -27,7 +27,7 @@
   }
 
   .card__amenities {
-    @apply flex gap-4;
+    @apply flex gap-4 font-body;
 
     & span {
       @apply text-neutral-500;
@@ -35,6 +35,6 @@
   }
 
   .card__price {
-    @apply text-xl font-semibold text-black font-display;
+    @apply text-xl font-medium text-black font-display;
   }
 }
