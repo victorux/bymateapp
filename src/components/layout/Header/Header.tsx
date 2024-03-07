@@ -1,6 +1,6 @@
 import Logo from './Logo'
 import SearchPanel from './SearchPanel/SearchPanel'
-import UserMenu from './UserMenu'
+import UserMenu from './UserMenu/UserMenu'
 
 export default function Header() {
   return (

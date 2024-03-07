@@ -1,0 +1,7 @@
+.MenuButton {
+  @apply flex p-4 border border-neutral-100 rounded-lg gap-4 cursor-pointer;
+
+  &:hover {
+    @apply shadow-lg;
+  }
+}
