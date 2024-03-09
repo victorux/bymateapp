@@ -1,4 +1,5 @@
 import styles from './SearchPanel.module.scss'
+import { MagnifyingGlass } from '@phosphor-icons/react'
 
 export default function SearchPanel() {
   return (
@@ -13,7 +14,7 @@ export default function SearchPanel() {
         </select>
       </div>
       <div className={styles.search__button}>
-        <p>Search Icon</p>
+        <MagnifyingGlass size={24} color="#ffffff" />
       </div>
     </div>
   )
