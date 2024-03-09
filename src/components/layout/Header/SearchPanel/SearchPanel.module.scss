@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  @apply border border-neutral-100 rounded-full p-2;
+}
+
+.search__button {
+  @apply bg-primary-300 p-4 rounded-full cursor-pointer;
+}
