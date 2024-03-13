@@ -6,6 +6,7 @@ import DesktopMenu from './DesktopMenu'
 
 export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   const menuRef = useRef(null)
 
   const toggleMenu = () => {
