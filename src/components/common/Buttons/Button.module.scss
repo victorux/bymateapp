@@ -10,7 +10,7 @@
     @apply bg-primary-300 text-white;
 
     &:hover {
-      @apply bg-primary-200;
+      @apply bg-primary-200 transition-all duration-300;
     }
   }
 
