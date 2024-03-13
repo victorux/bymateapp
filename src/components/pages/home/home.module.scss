@@ -13,7 +13,7 @@
   height: auto;
   @apply py-80;
   text-align: center;
-  z-index: -2;
+  z-index: 1;
 
   ::after {
     content: '';
@@ -24,7 +24,7 @@
     height: 100%;
     background-image: linear-gradient(
       to top,
-      rgba(43, 43, 43, 0.4),
+      rgba(43, 43, 43, 0.3),
       rgba(0, 0, 0, 0)
     );
     z-index: -1;

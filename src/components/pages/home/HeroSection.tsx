@@ -1,5 +1,6 @@
 import Button from '../../common/Buttons/Button'
 import style from './home.module.scss'
+import { useNavigate } from 'react-router-dom'
 
 interface HeroSectionProps {
   title: string
@@ -13,6 +14,12 @@ export default function HeroSection({
   subtitle,
   image,
 }: HeroSectionProps) {
+  const navigate = useNavigate()
+
+  function handleClick() {
+    navigate('/rooms')
+  }
+
   return (
     <div
       className={style.hero__section}
@@ -21,7 +28,7 @@ export default function HeroSection({
       <div className="container">
         <h1 className={style.hero__heading}>{title}</h1>
         <p className={style.hero__body}>{subtitle}</p>
-        <Button color="primary" onClick={() => console.log('clicked')}>
+        <Button color="primary" onClick={handleClick}>
           Search Now
         </Button>
       </div>

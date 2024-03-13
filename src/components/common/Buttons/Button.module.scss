@@ -1,40 +1,45 @@
 .Button {
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
-    width: auto;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  width: auto;
+  z-index: 999;
 
-    &.primary {
-        @apply bg-primary-200 text-white;
-    }
+  &.primary {
+    @apply bg-primary-300 text-white;
 
-    &.secondary {
-        @apply bg-neutral-500 text-white
+    &:hover {
+      @apply bg-primary-200;
     }
+  }
 
-    &.transparent {
-        @apply text-neutral-500;
-        background-color: transparent
-    }
+  &.secondary {
+    @apply bg-neutral-500 text-white;
+  }
 
-    &.border {
-        border: 1px solid gray;
-    }
+  &.transparent {
+    @apply text-neutral-500;
+    background-color: transparent;
+  }
 
-    &.small {
-        @apply text-sm py-2 px-4;
-    }
-    
-    &.medium {
-        @apply text-base py-4 px-8;
-    }
-    
-    &.large {
-        @apply text-xl py-6 px-10;
-    }
+  &.border {
+    border: 1px solid gray;
+  }
 
-    &.icon {
-        @apply m-1;
-    }
+  &.small {
+    @apply text-sm py-2 px-4;
+  }
+
+  &.medium {
+    @apply text-base py-4 px-8;
+  }
+
+  &.large {
+    @apply text-xl py-6 px-10;
+  }
+
+  &.icon {
+    @apply m-1;
+  }
 }
