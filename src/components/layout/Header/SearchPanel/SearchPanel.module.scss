@@ -21,7 +21,6 @@
 .what__container {
   @apply flex-col flex-grow flex items-center justify-center hover:bg-neutral-100 rounded-full pl-6 pr-32 transition;
 }
-
-.button {
+np .button {
   @apply bg-primary-300 p-3 rounded-full absolute right-[3px] top-[3px] hover:bg-primary-200 transition;
 }
