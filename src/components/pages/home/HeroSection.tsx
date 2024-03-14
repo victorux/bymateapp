@@ -25,7 +25,7 @@ export default function HeroSection({
       className={style.hero__section}
       style={{ backgroundImage: `url(${image})` }}
     >
-      <div className="container">
+      <div className="container flex flex-col justify-center items-center">
         <h1 className={style.hero__heading}>{title}</h1>
         <p className={style.hero__body}>{subtitle}</p>
         <Button color="primary" onClick={handleClick}>
