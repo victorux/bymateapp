@@ -218,11 +218,8 @@ export default function Rooms() {
           </Button>
         </div>
 
-        {/* Pagination */}
-        <div>
-          <h1>Pagination</h1>
-          <Pagination itemsPerPage={8} data={data} renderData={renderData} />
-        </div>
+        {/* Render data with pagination */}
+        <Pagination itemsPerPage={8} data={data} renderData={renderData} />
       </div>
     </div>
   )
