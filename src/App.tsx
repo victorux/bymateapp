@@ -1,8 +1,9 @@
 import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
 import ErrorPage from './components/pages/error-page'
-import Home from './components/pages/home/Home'
-import Rooms from './components/pages/rooms/Rooms'
+import Home from './components/pages/Home/Home'
+import Rooms from './components/pages/Rooms/Rooms'
+import RoomDetails from './components/pages/RoomDetails/RoomDetails'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
   {
     path: '/rooms',
     element: <Rooms />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/rooms/:id',
+    element: <RoomDetails />,
     errorElement: <ErrorPage />,
   },
 ])
