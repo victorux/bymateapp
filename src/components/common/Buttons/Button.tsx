@@ -9,6 +9,7 @@ interface ButtonProps {
   border?: boolean
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
+  rounded?: 'rounded-md' | 'rounded-full'
 }
 
 function Button({
@@ -18,21 +19,17 @@ function Button({
   color,
   disabled,
   border,
+  rounded,
   icon,
   iconPosition = 'left',
 }: ButtonProps) {
-  const classNames = `${styles.Button} ${styles[size || 'medium']} ${
-    styles[color || 'transparent']
-  } ${styles[border ? 'border' : 'no-border']} ${
-    disabled ? styles.disabled : ''
-  }`
+  const classNames = `${styles.Button} ${styles[rounded || 'rounded-md']} ${
+    styles[size || 'medium']
+  } ${styles[color || 'transparent']} ${
+    styles[border ? 'border' : 'no-border']
+  } ${disabled ? styles.disabled : ''}`
   return (
-    <button
-      type="button"
-      className={classNames}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button type="button" className={classNames} onClick={onClick}>
       {icon && iconPosition === 'left' && (
         <span className={styles.icon}>{icon}</span>
       )}

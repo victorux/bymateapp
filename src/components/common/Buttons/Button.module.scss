@@ -1,14 +1,12 @@
 .Button {
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
   outline: none;
   width: auto;
-  z-index: 999;
   display: flex;
   justify-items: center;
   align-items: center;
   gap: 8px;
+  cursor: pointer !important;
 
   &.primary {
     @apply bg-primary-300 text-white;
@@ -24,10 +22,10 @@
 
   &.transparent {
     @apply text-black;
-    background-color: transparent;
+    background-color: #fff;
 
     &:hover {
-      @apply transition shadow-lg;
+      @apply transition shadow-md;
     }
   }
 
@@ -49,5 +47,13 @@
 
   &.icon {
     @apply m-1;
+  }
+
+  &.rounded-full {
+    border-radius: 999px;
+  }
+
+  &.rounded-md {
+    border-radius: 8px;
   }
 }

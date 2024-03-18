@@ -1,9 +1,38 @@
+import { CaretRight, Heart, ShareFat } from '@phosphor-icons/react'
+import { COLORS } from '../../../constants/colors'
+import Button from '../../common/Buttons/Button'
+
 export default function RoomDetails() {
   return (
     <div className="container">
-      <div className="flex justify-between bg-neutral-50">
-        <div>Breadcrumb</div>
-        <div>Share & Save</div>
+      <div className="flex justify-between bg-neutral-50 ">
+        <div className="flex flex-row gap-1 text-xl items-center">
+          <span>Galway</span>
+          <CaretRight size={24} color={COLORS.black} />
+          <span>Rahoon</span>
+        </div>
+        <div className="flex items-center gap-4 my-6">
+          <Button
+            onClick={() => console.log('Share Button clicked...')}
+            icon={<ShareFat size={24} color={COLORS.black} />}
+            iconPosition="left"
+            border={true}
+            rounded="rounded-full"
+            size="small"
+          >
+            Share
+          </Button>
+          <Button
+            onClick={() => console.log('Save Button clicked...')}
+            icon={<Heart size={24} color={COLORS.black} />}
+            iconPosition="left"
+            border={true}
+            rounded="rounded-full"
+            size="small"
+          >
+            Save
+          </Button>
+        </div>
       </div>
 
       <div className="bg-neutral-100 h-[600px] w-full">
