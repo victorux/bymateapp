@@ -11,7 +11,7 @@ function DesktopMenu({ isOpen }: DesktopMenuProps) {
         styles.desktopMenu
       }`}
     >
-      <a href="/">Profile</a>
+      <a href="/profile/1">Profile</a>
       <a href="/">Settings</a>
       <a href="/">Sign out</a>
     </div>

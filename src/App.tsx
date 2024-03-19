@@ -6,6 +6,7 @@ import Rooms from './components/pages/Rooms/Rooms'
 import RoomDetails from './components/pages/RoomDetails/RoomDetails'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import UserProfile from './components/pages/Profile/UserProfile'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
   {
     path: '/rooms/:id',
     element: <RoomDetails />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/profile/:id',
+    element: <UserProfile />,
     errorElement: <ErrorPage />,
   },
 ])
