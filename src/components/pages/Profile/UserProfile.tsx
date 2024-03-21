@@ -38,7 +38,7 @@ function UserProfile() {
             </div>
           </div>
           {/* Verified Widget */}
-          <div className="flex flex-col gap-4 p-6 border border-neutral-200 rounded-lg">
+          <div className="flex flex-col gap-4 p-6 border border-neutral-100 rounded-lg">
             <h6>Katty confirmed information</h6>
             <div className="flex gap-2 items-center">
               <Check size={16} color={COLORS.black} />
