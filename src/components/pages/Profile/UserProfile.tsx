@@ -1,6 +1,7 @@
 import UserImg from '../../../assets/property/user.jpeg'
-import { SealCheck } from '@phosphor-icons/react'
+import { SealCheck, Check } from '@phosphor-icons/react'
 import styles from './UserProfile.module.scss'
+import { COLORS } from '../../../constants/colors'
 
 function UserProfile() {
   return (
@@ -13,27 +14,45 @@ function UserProfile() {
                 className={styles.userImage}
                 style={{ backgroundImage: `url(${UserImg})` }}
               />
-              <div className="flex flex-col gap-4 mb-8">
+              <div className="flex flex-col gap-4">
                 <div className="flex gap-1">
                   <span className="font-semibold text-lg">Katty P.</span>
                   <SealCheck size={24} color="#258B73" />
                 </div>
-                <div className="flex flex-col gap-1">
-                  <span className="font-normal text-neutral-500 text-base">
-                    Age
-                  </span>
-                  <span className="font-semibold">25</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="font-normal text-neutral-500 text-base">
-                    Joined
-                  </span>
-                  <span className="font-semibold">a month ago</span>
+                <div className="flex gap-6">
+                  <div className="flex flex-col gap-1">
+                    <span className="font-normal text-neutral-500 text-base">
+                      Age
+                    </span>
+                    <span className="font-medium">25</span>
+                  </div>
+                  <div className="w-[1px] h-full bg-neutral-200"></div>
+                  <div className="flex flex-col gap-1">
+                    <span className="font-normal text-neutral-500 text-base">
+                      Joined
+                    </span>
+                    <span className="font-medium">a month ago</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>Verified profile widget</div>
+          {/* Verified Widget */}
+          <div className="flex flex-col gap-4 p-6 border border-neutral-200 rounded-lg">
+            <h6>Katty confirmed information</h6>
+            <div className="flex gap-2 items-center">
+              <Check size={16} color={COLORS.black} />
+              <span>Identity</span>
+            </div>
+            <div className="flex gap-2 items-center">
+              <Check size={16} color={COLORS.black} />
+              <span>Email address</span>
+            </div>
+            <div className="flex gap-2 items-center">
+              <Check size={16} color={COLORS.black} />
+              <span>Phone number</span>
+            </div>
+          </div>
         </div>
         <div className="bg-secondary-200 col-span-3 self-start">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
