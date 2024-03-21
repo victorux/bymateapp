@@ -1,7 +1,15 @@
 import UserImg from '../../../assets/property/user.jpeg'
-import { SealCheck, Check } from '@phosphor-icons/react'
+import {
+  SealCheck,
+  Check,
+  Cake,
+  MapPin,
+  BagSimple,
+  MusicNoteSimple,
+} from '@phosphor-icons/react'
 import styles from './UserProfile.module.scss'
 import { COLORS } from '../../../constants/colors'
+import Button from '../../common/Buttons/Button'
 
 function UserProfile() {
   return (
@@ -54,14 +62,42 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="bg-secondary-200 col-span-3 self-start">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-          autem architecto veniam illo deserunt sit officiis! Neque ullam nobis
-          quasi minus rerum, odio esse quam aliquid maxime adipisci nostrum hic.
-          Architecto voluptas iste libero sapiente, laudantium labore fuga nulla
-          culpa recusandae voluptatum, dicta quidem totam non sint temporibus
-          commodi sit nihil natus animi enim numquam. Eius ea sint facere
-          voluptatibus?
+        <div className="col-span-3 self-start">
+          <h2 className="font-semibold font-display mb-4">About Katty</h2>
+          <Button
+            border
+            size="medium"
+            onClick={() => console.log('edit btn was clicked!')}
+          >
+            Edit Profile
+          </Button>
+          <div className="grid grid-cols-2 mt-10 max-w-[640px] gap-4 items-start">
+            <div className="flex gap-2 items-center">
+              <Cake size={24} color={COLORS.black} />
+              <span className="text-base">Born in 1999</span>
+            </div>
+            <div className="flex gap-2 items-center">
+              <MapPin size={24} color={COLORS.black} />
+              <span className="text-base">Lives in Limerick, Ireland</span>
+            </div>
+
+            <div className="flex gap-2 items-center">
+              <BagSimple size={24} color={COLORS.black} />
+              <span className="text-base">My work: To many to list</span>
+            </div>
+            <div className="flex gap-2 items-start">
+              <MusicNoteSimple size={24} color={COLORS.black} />
+              <span className="text-base">
+                Favourite song: Mama we're all crazy now
+              </span>
+            </div>
+          </div>
+          <p className="mt-10 leading-7 max-w-[640px]">
+            Hi I'm Katty and I'm looking to assign the lease of my pre-war
+            studio on the UES (3-blocks from Central Park, Q-train right at the
+            end of the street). Available date is between now and 2/1/24, and
+            lease ends 6/30 with option to renew.
+          </p>
         </div>
       </div>
     </div>
