@@ -10,7 +10,7 @@
   top: calc(100% + 8px);
   z-index: 10;
   transform-origin: top;
-  @apply absolute right-0 transition bg-white rounded-md border border-neutral-100 shadow-md flex flex-col overflow-hidden font-body;
+  @apply absolute right-0 transition bg-white rounded-md border border-neutral-100 shadow-md flex flex-col overflow-hidden font-body w-[200px];
 
   a {
     display: block;
