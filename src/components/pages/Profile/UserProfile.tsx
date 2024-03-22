@@ -11,6 +11,7 @@ import styles from './UserProfile.module.scss'
 import { COLORS } from '../../../constants/colors'
 import Button from '../../common/Buttons/Button'
 import ListingCard from '../../common/Card/ListingCard'
+import { useNavigate } from 'react-router-dom'
 
 const listings = [
   {
@@ -49,6 +50,11 @@ const listings = [
 ]
 
 function UserProfile() {
+  const navigate = useNavigate()
+
+  const manageListingHandler = () => {
+    navigate('/my-listings')
+  }
   return (
     <div className="container pt-10">
       <div className="grid grid-cols-4 gap-12 w-full">
@@ -142,11 +148,7 @@ function UserProfile() {
           <div className="w-full h-[1px] bg-neutral-200 my-10"></div>
           {/* User's listing section */}
           <h5 className="font-display font-semibold mb-6">Katty's listing</h5>
-          <Button
-            border
-            size="small"
-            onClick={() => console.log('manage listing btn was clicked!')}
-          >
+          <Button border size="small" onClick={manageListingHandler}>
             Manage Listing
           </Button>
           <div className="grid grid-cols-3 gap-10 my-10">
