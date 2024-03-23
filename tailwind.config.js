@@ -1,20 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-  container: {
-    center: true,
-    padding: {
-      DEFAULT: '1rem',
-      sm: '2rem',
-      lg: '4rem',
-      xl: '5rem',
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+      },
     },
-  },
-  colors: {
+    colors: {
       primary: {
         50: '#FFEDF0',
         75: '#FFB3C1',
@@ -43,20 +40,18 @@ export default {
         500: '#87888A',
       },
       black: '#181B2A',
-      white: '#FFFFFF'
+      white: '#FFFFFF',
     },
-  fontFamily: {
-      'display': ['Montserrat', 'sans-serif'],
-      'body': ["Inter", 'sans-serif']
+    fontFamily: {
+      display: ['Montserrat', 'sans-serif'],
+      body: ['Inter', 'sans-serif'],
     },
-  extend: {
-    screens: {
-      '3xl': '1920px',
-      '4xl': '2520px'
+    extend: {
+      screens: {
+        '3xl': '1920px',
+        '4xl': '2520px',
+      },
     },
-    
-  },
   },
   plugins: [],
 }
-

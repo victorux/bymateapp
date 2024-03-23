@@ -1,4 +1,5 @@
 import { Listing } from '../../../types'
+import { useNavigate } from 'react-router-dom'
 import styles from './Listing.module.scss'
 
 interface ListingCardProps {
@@ -6,8 +7,14 @@ interface ListingCardProps {
 }
 
 function ListingCard({ listing }: ListingCardProps) {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/rooms/${listing.id}`)
+  }
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClick}>
       <img
         className={styles.card__image}
         src={listing.image}
