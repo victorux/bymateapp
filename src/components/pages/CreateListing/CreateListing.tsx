@@ -1,5 +1,11 @@
+import FormFooter from './FormFooter'
+
 const CreateListing = () => {
-  return <div>CreateListing Page</div>
+  return (
+    <div>
+      <FormFooter />
+    </div>
+  )
 }
 
 export default CreateListing
