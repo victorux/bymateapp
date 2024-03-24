@@ -2,6 +2,7 @@ import Button from '../../common/Buttons/Button'
 import { CaretDown, Eye, Plus } from '@phosphor-icons/react'
 import styles from './MyListings.module.scss'
 import { COLORS } from '../../../constants/colors'
+import { useNavigate } from 'react-router-dom'
 
 const data = [
   {
@@ -35,6 +36,12 @@ const data = [
 ]
 
 function MyListings() {
+  const navigate = useNavigate()
+
+  const newListingButtonHandler = () => {
+    navigate('/create-listing')
+  }
+
   const activeButtonHandler = () => {
     console.log('active btn clicked')
   }
@@ -82,7 +89,7 @@ function MyListings() {
           color="primary"
           rounded="rounded-md"
           size="small"
-          onClick={() => console.log('create new listing')}
+          onClick={newListingButtonHandler}
           icon={<Plus size={16} color="#ffffff" />}
         >
           Create New Listing
