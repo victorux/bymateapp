@@ -3,10 +3,9 @@ import Home from './components/pages/Home/Home'
 import Rooms from './components/pages/Rooms/Rooms'
 import RoomDetails from './components/pages/RoomDetails/RoomDetails'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Form, RouterProvider } from 'react-router-dom'
 import UserProfile from './components/pages/Profile/UserProfile'
 import MyListings from './components/pages/MyListings/MyListings'
-import CreateListing from './components/pages/CreateListing/CreateListing'
 import Layout from './components/layout/Layout'
 
 const router = createBrowserRouter([
@@ -40,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/create-listing',
-        element: <CreateListing />,
+        element: <Form />,
         errorElement: <ErrorPage />,
       },
     ],

@@ -1,16 +1,16 @@
-import useFormContext from '../../../hooks/useFormContext'
+import { FormProvider } from '../../../context/FormContext'
+import FormFooter from './FormFooter'
+import FormInputs from './FormInputs'
 
-const Form = () => {
-  const { title, page, data } = useFormContext()
-
-  console.log(title[page])
-  console.log(data)
-
+const AddForm = () => {
   return (
-    <div>
-      <h1>{title[page]}</h1>
-    </div>
+    <>
+      <FormProvider>
+        <FormInputs />
+        <FormFooter />
+      </FormProvider>
+    </>
   )
 }
 
-export default Form
+export default AddForm
