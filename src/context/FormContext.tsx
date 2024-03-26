@@ -1,14 +1,16 @@
-import { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
-const FormContext = createContext({})
+import { NewListings } from '../types/NewListings'
+
+const FormContext = createContext({} as NewListings)
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const [page, setPage] = useState(0)
 
-  const title = {
+  const title: { [key: number]: string } = {
     // Step 1
     0: 'Step 1: About the Property',
-    1: 'Which of these best describes your place?',
+    1: 'Which of these best describes your place?',
     2: 'What type of place will guests have?',
     3: 'Where is your place located?',
     4: 'Confirm the address',
@@ -29,9 +31,9 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     16: 'Preview and Publish',
   }
 
-  const [data, setData] = useState({
-    propertyType: '',
-    spaceType: '',
+  const data: NewListings['data'] = {
+    propertyType: null,
+    spaceType: null,
     county: '',
     street: '',
     city: '',
@@ -41,33 +43,24 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
       shared: 0,
       dedicated: 0,
     },
-    amenities: '',
-    standoutAmenities: '',
-    safetyAmenities: '',
-    photos: '',
+    amenities: null,
+    standoutAmenities: null,
+    safetyAmenities: null,
+    photos: [],
     title: '',
     description: '',
     price: 0,
-    deposit: 0,
-    bills: '',
-    duration: '',
+    deposit: null,
+    bills: null,
+    duration: null,
     moveInDate: '',
     moveOutDate: '',
-    preferences: '',
-    references: '',
-  })
-
-  const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const type = e.target.type
-    const name = e.target.name
-    const value = type === 'checkbox' ? e.target.checked : e.target.value
-    setData({ ...data, [name]: value })
+    preferences: [],
+    references: [],
   }
 
   return (
-    <FormContext.Provider
-      value={{ title, page, setPage, data, setData, handleChanges }}
-    >
+    <FormContext.Provider value={{ title, page, setPage, data }}>
       {children}
     </FormContext.Provider>
   )

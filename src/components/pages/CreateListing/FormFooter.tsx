@@ -1,17 +1,19 @@
 import Button from '../../common/Buttons/Button'
 import { useEffect, useState } from 'react'
+import useFormContext from '../../../hooks/useFormContext'
 
-const backHandler = () => {
-  console.log('back')
-}
-
-const nextHandler = () => {
-  console.log('next')
-}
-
-//
 const FormFooter = () => {
   const [isContentLong, setIsContentLong] = useState(false)
+
+  const { setPage, page, title } = useFormContext()
+
+  const backHandler = () => {
+    page === 0 ? null : setPage(page - 1)
+  }
+
+  const nextHandler = () => {
+    Object.keys(title).length - 1 === page ? null : setPage(page + 1)
+  }
 
   useEffect(() => {
     const handleResize = () => {

@@ -1,11 +1,14 @@
+import { FormProvider } from '../../../context/FormContext'
 import Form from './Form'
 import FormFooter from './FormFooter'
 
 const CreateListing = () => {
   return (
     <div>
-      <Form />
-      <FormFooter />
+      <FormProvider>
+        <Form />
+        <FormFooter />
+      </FormProvider>
     </div>
   )
 }

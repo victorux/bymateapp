@@ -29,7 +29,12 @@ function Button({
     styles[border ? 'border' : 'no-border']
   } ${disabled ? styles.disabled : ''}`
   return (
-    <button type="button" className={classNames} onClick={onClick}>
+    <button
+      disabled={disabled}
+      type="button"
+      className={classNames}
+      onClick={onClick}
+    >
       {icon && iconPosition === 'left' && (
         <span className={styles.icon}>{icon}</span>
       )}
