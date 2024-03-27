@@ -1,0 +1,18 @@
+.blur {
+  z-index: -1;
+  width: 219px;
+  height: 152px;
+  flex-shrink: 0;
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  background-color: #ace8da;
+  filter: blur(35.20000076293945px);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 110px - 104px);
+}

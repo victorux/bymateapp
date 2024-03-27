@@ -1,11 +1,11 @@
 import useFormContext from '../../../hooks/useFormContext'
-import ConfirmAddress from './4/ConfirmAddress'
+import ConfirmAddress from './steps/4/ConfirmAddress'
 import Step1About from './steps/0/Step1About'
 import PropertyType from './steps/1/PropertyType'
 import SpaceType from './steps/2/SpaceType'
 import EnterAddress from './steps/3/EnterAddress'
-import Baths from './steps/4/Baths'
-import Step2Banner from './steps/5/Step2Banner'
+import Baths from './steps/5/Baths'
+import Step2Banner from './steps/6/Step2Banner'
 
 const FormInputs = () => {
   const { page } = useFormContext()
