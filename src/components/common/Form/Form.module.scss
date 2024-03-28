@@ -1,0 +1,14 @@
+.custom_radio {
+  @apply cursor-pointer flex flex-col items-start justify-start gap-2 border-2  border-neutral-200 p-4 rounded-xl min-w-[184px] text-black font-medium text-base;
+}
+
+.selected {
+  @apply bg-neutral-50 border-black;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 110px - 104px);
+}

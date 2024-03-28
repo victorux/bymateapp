@@ -1,8 +1,39 @@
-import React, { createContext, useState } from 'react'
+import { useState, createContext } from 'react'
+import { ContextProps, FormData } from '../types/NewListings'
 
-import { NewListings } from '../types/NewListings'
-
-const FormContext = createContext({} as NewListings)
+const FormContext = createContext<ContextProps>({
+  formData: {
+    propertyType: '',
+    spaceType: null,
+    county: '',
+    street: '',
+    city: '',
+    eircode: '',
+    bathsavailable: {
+      private: 0,
+      shared: 0,
+      dedicated: 0,
+    },
+    amenities: null,
+    standoutAmenities: null,
+    safetyAmenities: null,
+    photos: [],
+    title: '',
+    description: '',
+    price: 0,
+    deposit: null,
+    bills: null,
+    duration: null,
+    moveInDate: '',
+    moveOutDate: '',
+    preferences: [],
+    references: [],
+  },
+  title: {},
+  page: 0,
+  setPage: () => null,
+  updateFormData: () => null,
+})
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const [page, setPage] = useState(0)
@@ -31,8 +62,8 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     16: 'Preview and Publish',
   }
 
-  const data: NewListings['data'] = {
-    propertyType: null,
+  const [formData, setData] = useState({
+    propertyType: '',
     spaceType: null,
     county: '',
     street: '',
@@ -57,10 +88,19 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     moveOutDate: '',
     preferences: [],
     references: [],
+  })
+
+  const updateFormData = (
+    key: keyof FormData,
+    value: FormData[keyof FormData]
+  ) => {
+    setData({ ...formData, [key]: value })
   }
 
   return (
-    <FormContext.Provider value={{ title, page, setPage, data }}>
+    <FormContext.Provider
+      value={{ page, setPage, title, formData, updateFormData }}
+    >
       {children}
     </FormContext.Provider>
   )
