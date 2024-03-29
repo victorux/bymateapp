@@ -12,3 +12,7 @@
   align-items: center;
   height: calc(100vh - 110px - 104px);
 }
+
+.cardButton {
+  @apply cursor-pointer flex flex-row justify-between gap-6 border-2  border-neutral-200 p-4 rounded-xl min-w-[184px] text-black font-medium text-base max-w-[448px] items-center;
+}
