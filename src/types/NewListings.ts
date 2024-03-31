@@ -8,7 +8,7 @@ export interface FormData {
     | 'Guesthouse'
     | 'Other'
     | string
-  spaceType: 'Entire place' | 'Private room' | 'Shared room' | null
+  spaceType: 'Entire' | 'Private' | 'Shared' | null
   county: string
   street: string
   city: string

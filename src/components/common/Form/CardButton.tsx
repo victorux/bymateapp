@@ -1,4 +1,5 @@
 import styles from './Form.module.scss'
+
 interface CustomRadioProps {
   title: string
   description: string
@@ -10,13 +11,15 @@ interface CustomRadioProps {
 const CardButton = ({
   title,
   icon,
-  selected,
+  selected = false,
   description,
   onClick,
 }: CustomRadioProps) => {
   return (
     <div
-      className={`${styles.cardButton} ${selected ? styles.selected : ''}`}
+      className={`${styles.card_button} ${
+        selected ? styles.selected : styles.none_selected
+      }`}
       onClick={onClick}
     >
       <div>

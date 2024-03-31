@@ -14,7 +14,9 @@ const CustomRadioButton = ({
 }: CustomRadioProps) => {
   return (
     <div
-      className={`${styles.custom_radio} ${selected ? styles.selected : ''}`}
+      className={`${styles.custom_radio} ${
+        selected ? styles.selected : styles.none_selected
+      }`}
       onClick={onClick}
     >
       <div className="icon">{icon}</div>
