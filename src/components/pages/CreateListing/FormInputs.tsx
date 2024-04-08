@@ -5,6 +5,7 @@ import SpaceType from './steps/2/SpaceType'
 import EnterAddress from './steps/3/EnterAddress'
 import Baths from './steps/4/Baths'
 import Step2Banner from './steps/5/Step2Banner'
+import Amenities from './steps/6/Amenities'
 
 const FormInputs = () => {
   const { page } = useFormContext()
@@ -20,6 +21,7 @@ const FormInputs = () => {
     3: <EnterAddress />,
     4: <Baths />,
     5: <Step2Banner />,
+    6: <Amenities />,
   }
 
   return <div>{displayStep[page]}</div>

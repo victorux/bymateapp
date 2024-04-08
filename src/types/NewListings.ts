@@ -20,26 +20,39 @@ export interface FormData {
     shared: number
     dedicated: number
   }
-  amenities:
-    | 'Wifi'
-    | 'Kitchen'
-    | 'Shampoo'
-    | 'Heating'
-    | 'Air conditioning'
-    | null
-  standoutAmenities:
-    | 'Wifi'
-    | 'Kitchen'
-    | 'Shampoo'
-    | 'Heating'
-    | 'Air conditioning'
-    | null
-  safetyAmenities:
-    | 'Smoke detector'
-    | 'First aid kit'
-    | 'Fire extinguisher'
-    | 'Lock on bedroom door'
-    | null
+  amenities: {
+    furnished: boolean
+    wifi: boolean
+    kitchen: boolean
+    washingmachine: boolean
+    heating: boolean
+    parking: boolean
+    airconditioning: boolean
+    livingroom: boolean
+    tv: boolean
+    teakettle: boolean
+    toaster: boolean
+    microwave: boolean
+    oven: boolean
+    coffeemaker: boolean
+    cleaningproducts: boolean
+  }
+  standoutAmenities: {
+    patio: boolean
+    balcony: boolean
+    pool: boolean
+    piano: boolean
+    gym: boolean
+    cleaningservice: boolean
+    boardgames: boolean
+    books: boolean
+  }
+  safetyAmenities: {
+    smokealarm: boolean
+    firstaidkit: boolean
+    fireextinguisher: boolean
+    cameras: boolean
+  }
   photos: string[]
   title: string
   description: string
