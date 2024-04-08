@@ -15,7 +15,7 @@ export interface FormData {
     city: string
     eircode: string
   }
-  bathsavailable: {
+  baths: {
     private: number
     shared: number
     dedicated: number

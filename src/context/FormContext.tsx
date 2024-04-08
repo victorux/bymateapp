@@ -11,7 +11,7 @@ const FormContext = createContext<ContextProps>({
       city: '',
       eircode: '',
     },
-    bathsavailable: {
+    baths: {
       private: 0,
       shared: 0,
       dedicated: 0,
@@ -72,7 +72,7 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
       city: '',
       eircode: '',
     },
-    bathsavailable: {
+    baths: {
       private: 0,
       shared: 0,
       dedicated: 0,
