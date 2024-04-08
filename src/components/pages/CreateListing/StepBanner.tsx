@@ -10,7 +10,7 @@ interface StepBannerProps {
 const StepBanner = ({ step, title, img, description }: StepBannerProps) => {
   return (
     <div className={styles.center}>
-      <div className="w-full grid grid-cols-2 gap-8">
+      <div className="w-full grid grid-cols-2 gap-8 items-center">
         <div>
           <span className="text-lg text-neutral-500 mb-6">Step: {step}</span>
           <h1 className="font-semibold font-display">{title}</h1>
