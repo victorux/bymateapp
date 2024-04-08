@@ -7,7 +7,7 @@ interface RoundedButtonProps {
 const RoundedButton = ({ icon, onClick }: RoundedButtonProps) => {
   return (
     <button
-      className="rounded-full hover:bg-neutral-100 border hover:border-neutral-500 border-neutral-300 w-10 h-10 flex items-center justify-center"
+      className="rounded-full hover:bg-neutral-100 border p-3 border-neutral-300 flex items-center justify-center"
       onClick={onClick}
     >
       {icon}

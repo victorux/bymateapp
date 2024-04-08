@@ -1,5 +1,5 @@
 import Button from '../../common/Buttons/Button'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import useFormContext from '../../../hooks/useFormContext'
 
 const FormFooter = () => {
@@ -30,8 +30,8 @@ const FormFooter = () => {
   return (
     <div>
       <div
-        className={`border-t border-neutral-200 absolute bottom-0 left-0 right-0 w-full px-16 py-6 flex justify-between items-center ${
-          isContentLong ? 'relative' : 'fixed'
+        className={`border-t border-neutral-200 bottom-0 left-0 right-0 w-full px-16 py-6 flex justify-between items-center ${
+          isContentLong ? '' : 'fixed'
         }`}
       >
         <Button border rounded="rounded-md" onClick={backHandler}>

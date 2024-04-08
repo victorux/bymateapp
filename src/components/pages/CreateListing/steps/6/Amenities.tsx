@@ -28,7 +28,6 @@ import {
 import useFormContext from '../../../../../hooks/useFormContext'
 import { FormData } from '../../../../../types/NewListings'
 import { Couch } from '@phosphor-icons/react/dist/ssr'
-import styles from '../../Form.module.scss'
 
 const amenitiesData: { [key in keyof FormData['amenities']]: boolean } = {
   wifi: false,
@@ -212,59 +211,68 @@ const Amenities = () => {
   }
 
   return (
-    <div className={styles.center}>
-      <div>
-        <Heading>Tell renters what your place has to offer</Heading>
-        <div className="grid grid-cols-3 max-w-[700px] gap-4">
-          {Object.entries(amenitiesData).map(([key]) => (
-            <CustomCheckButton
-              key={key}
-              icon={iconsAmenities[key as keyof typeof iconsAmenities].icon}
-              selected={
-                formData?.amenities[key as keyof FormData['amenities']] ?? false
-              }
-              label={iconsAmenities[key as keyof typeof iconsAmenities].label}
-              onClick={() =>
-                handleClickAmmenities(key as keyof FormData['amenities'])
-              }
-            />
-          ))}
+    <div className="flex flex-col w-full items-center my-10">
+      <div className="flex flex-col gap-10">
+        <div>
+          <Heading>Tell renters what your place has to offer</Heading>
+          <div className="grid grid-cols-3 max-w-[700px] gap-4">
+            {Object.entries(amenitiesData).map(([key]) => (
+              <CustomCheckButton
+                key={key}
+                icon={iconsAmenities[key as keyof typeof iconsAmenities].icon}
+                selected={
+                  formData?.amenities[key as keyof FormData['amenities']] ??
+                  false
+                }
+                label={iconsAmenities[key as keyof typeof iconsAmenities].label}
+                onClick={() =>
+                  handleClickAmmenities(key as keyof FormData['amenities'])
+                }
+              />
+            ))}
+          </div>
         </div>
-        <Heading>Do you have any standout amenities?</Heading>
-        <div className="grid grid-cols-3 max-w-[700px] gap-4">
-          {Object.entries(standoutData).map(([key]) => (
-            <CustomCheckButton
-              key={key}
-              icon={iconsStandout[key as keyof typeof iconsStandout].icon}
-              selected={
-                formData?.standoutAmenities[
-                  key as keyof FormData['standoutAmenities']
-                ] ?? false
-              }
-              label={iconsStandout[key as keyof typeof iconsStandout].label}
-              onClick={() =>
-                handleClickStandout(key as keyof FormData['standoutAmenities'])
-              }
-            />
-          ))}
+        <div>
+          <Heading>Do you have any standout amenities?</Heading>
+          <div className="grid grid-cols-3 max-w-[700px] gap-4">
+            {Object.entries(standoutData).map(([key]) => (
+              <CustomCheckButton
+                key={key}
+                icon={iconsStandout[key as keyof typeof iconsStandout].icon}
+                selected={
+                  formData?.standoutAmenities[
+                    key as keyof FormData['standoutAmenities']
+                  ] ?? false
+                }
+                label={iconsStandout[key as keyof typeof iconsStandout].label}
+                onClick={() =>
+                  handleClickStandout(
+                    key as keyof FormData['standoutAmenities']
+                  )
+                }
+              />
+            ))}
+          </div>
         </div>
-        <Heading>Do you have any of these safety items?</Heading>
-        <div className="grid grid-cols-3 max-w-[700px] gap-4">
-          {Object.entries(safetyData).map(([key]) => (
-            <CustomCheckButton
-              key={key}
-              icon={iconsSafety[key as keyof typeof iconsSafety].icon}
-              selected={
-                formData?.safetyAmenities[
-                  key as keyof FormData['safetyAmenities']
-                ] ?? false
-              }
-              label={iconsSafety[key as keyof typeof iconsSafety].label}
-              onClick={() =>
-                handleClickSafety(key as keyof FormData['safetyAmenities'])
-              }
-            />
-          ))}
+        <div>
+          <Heading>Do you have any of these safety items?</Heading>
+          <div className="grid grid-cols-3 max-w-[700px] gap-4">
+            {Object.entries(safetyData).map(([key]) => (
+              <CustomCheckButton
+                key={key}
+                icon={iconsSafety[key as keyof typeof iconsSafety].icon}
+                selected={
+                  formData?.safetyAmenities[
+                    key as keyof FormData['safetyAmenities']
+                  ] ?? false
+                }
+                label={iconsSafety[key as keyof typeof iconsSafety].label}
+                onClick={() =>
+                  handleClickSafety(key as keyof FormData['safetyAmenities'])
+                }
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -274,5 +282,5 @@ const Amenities = () => {
 export default Amenities
 
 const Heading = ({ children }: { children: React.ReactNode }) => {
-  return <h5 className="font-medium">{children}</h5>
+  return <h5 className="font-medium mb-4">{children}</h5>
 }
