@@ -1,12 +1,13 @@
 import styles from './Form.module.scss'
 
 interface InputProps {
+  name: string
   label: string
-  value: string
+  value: string | null
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input = ({ label, value, onChange, ...rest }: InputProps) => {
+const Input = ({ label, value, name, onChange, ...rest }: InputProps) => {
   return (
     <div className={styles.TextField}>
       <input
@@ -14,8 +15,9 @@ const Input = ({ label, value, onChange, ...rest }: InputProps) => {
           value ? styles.Input__isFilled : styles.Input__isEmpty
         }`}
         type="text"
-        value={value}
+        value={value || ''}
         onChange={onChange}
+        name={name}
         {...rest}
       />
       <label

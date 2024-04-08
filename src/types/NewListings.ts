@@ -9,10 +9,12 @@ export interface FormData {
     | 'Other'
     | string
   spaceType: 'Entire' | 'Private' | 'Shared' | null
-  county: string
-  street: string
-  city: string
-  eircode: string
+  address: {
+    county: string
+    street: string
+    city: string
+    eircode: string
+  }
   bathsavailable: {
     private: number
     shared: number

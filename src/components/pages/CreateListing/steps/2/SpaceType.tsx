@@ -6,16 +6,9 @@ import useFormContext from '../../../../../hooks/useFormContext'
 const SpaceType = () => {
   const { updateFormData, formData } = useFormContext()
 
-  const handleClickPrivate = () => {
-    updateFormData('spaceType', 'Private')
-  }
-
-  const handleClickShared = () => {
-    updateFormData('spaceType', 'Shared')
-  }
-
-  const handleClickEntire = () => {
-    updateFormData('spaceType', 'Entire')
+  const handleClick = (value: 'Private' | 'Shared' | 'Entire'): void => {
+    updateFormData('spaceType', value)
+    console.log(formData?.spaceType)
   }
 
   return (
@@ -24,21 +17,21 @@ const SpaceType = () => {
         <h5>What type of place will guests have?</h5>
         <div className="flex flex-col gap-4 mt-8">
           <CardButton
-            onClick={handleClickPrivate}
+            onClick={() => handleClick('Private')}
             icon={<CodaLogo size={32} />}
             title="A private room"
             description="Guests have their own room in a home, plus access to shared spaces."
             selected={formData?.spaceType === 'Private'}
           />
           <CardButton
-            onClick={handleClickShared}
+            onClick={() => handleClick('Shared')}
             icon={<Users size={32} />}
             title="A shared room"
             description="Guests sleep in a room or common area that may be shared with you or others."
             selected={formData?.spaceType === 'Shared'}
           />
           <CardButton
-            onClick={handleClickEntire}
+            onClick={() => handleClick('Entire')}
             icon={<HouseLine size={32} />}
             title="An entire place"
             description="Guests have the whole place to themselves."
