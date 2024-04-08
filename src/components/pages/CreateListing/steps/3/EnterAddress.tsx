@@ -26,16 +26,16 @@ const EnterAddress = () => {
             value={formData?.address.street ?? null}
           />
           <Input
-            name="city"
-            label="City/Town"
-            onChange={handleChange}
-            value={formData?.address.city ?? null}
-          />
-          <Input
             name="county"
             label="County"
             onChange={handleChange}
             value={formData?.address.county ?? null}
+          />
+          <Input
+            name="city"
+            label="City/Town"
+            onChange={handleChange}
+            value={formData?.address.city ?? null}
           />
           <Input
             name="eircode"
