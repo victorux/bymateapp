@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { CameraPlus, Images } from '@phosphor-icons/react'
+import useFormContext from '../../../../../hooks/useFormContext'
 
 const thumbsContainer: React.CSSProperties = {
   width: '640px',
@@ -30,21 +31,26 @@ const img: React.CSSProperties = {
 }
 
 const UploadPhotos = () => {
+  const { updateFormData, formData } = useFormContext()
   const [files, setFiles] = useState<{ preview: string }[]>([])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: {
       'image/*': [],
     },
     onDrop: (acceptedFiles) => {
-      setFiles([
-        ...files,
-        ...acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        ),
-      ])
-      console.log(files)
+      const updatedFiles = acceptedFiles.map((file) => ({
+        ...file,
+        preview: URL.createObjectURL(file),
+      }))
+
+      setFiles((prevFiles) => [...prevFiles, ...updatedFiles])
+
+      updateFormData(
+        'photos',
+        files.map((file) => file.preview)
+      )
+
+      console.log(formData?.photos)
     },
   })
 
@@ -96,8 +102,6 @@ const UploadPhotos = () => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview))
   }, [])
-
-  console.log(files)
 
   return (
     <div>
