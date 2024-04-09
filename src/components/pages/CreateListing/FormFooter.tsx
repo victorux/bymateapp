@@ -30,8 +30,8 @@ const FormFooter = () => {
   return (
     <div>
       <div
-        className={`border-t border-neutral-200 bottom-0 left-0 right-0 w-full px-16 py-6 flex justify-between items-center ${
-          isContentLong ? '' : 'fixed'
+        className={`bg-white border-t border-neutral-200 bottom-0 left-0 right-0 w-full px-16 py-6 flex justify-between items-center ${
+          isContentLong ? 'absolute' : ''
         }`}
       >
         <Button border rounded="rounded-md" onClick={backHandler}>
