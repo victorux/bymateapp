@@ -7,6 +7,7 @@ import Baths from './steps/4/Baths'
 import Step2Banner from './steps/5/Step2Banner'
 import Amenities from './steps/6/Amenities'
 import UploadPhotos from './steps/7/UploadPhotos'
+import Step3Finish from './steps/8/Step3Finish'
 
 const FormInputs = () => {
   const { page } = useFormContext()
@@ -24,6 +25,7 @@ const FormInputs = () => {
     5: <Step2Banner />,
     6: <Amenities />,
     7: <UploadPhotos />,
+    8: <Step3Finish />,
   }
 
   return <div>{displayStep[page]}</div>
