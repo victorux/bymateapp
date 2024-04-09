@@ -28,24 +28,22 @@ const FormFooter = () => {
   }, [])
 
   return (
-    <div>
-      <div
-        className={`bg-white border-t border-neutral-200 bottom-0 left-0 right-0 w-full px-16 py-6 flex justify-between items-center ${
-          isContentLong ? 'absolute' : ''
-        }`}
+    <div
+      className={`bg-white border-t border-neutral-200 bottom-0 left-0 right-0 w-full px-16 py-6 flex justify-between items-center ${
+        isContentLong ? '' : ''
+      }`}
+    >
+      <Button border rounded="rounded-md" onClick={backHandler}>
+        Back
+      </Button>
+      <Button
+        color="primary"
+        size="medium"
+        rounded="rounded-md"
+        onClick={nextHandler}
       >
-        <Button border rounded="rounded-md" onClick={backHandler}>
-          Back
-        </Button>
-        <Button
-          color="primary"
-          size="medium"
-          rounded="rounded-md"
-          onClick={nextHandler}
-        >
-          Next
-        </Button>
-      </div>
+        Next
+      </Button>
     </div>
   )
 }

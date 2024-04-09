@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { CameraPlus, Images } from '@phosphor-icons/react'
 import useFormContext from '../../../../../hooks/useFormContext'
+import styles from '../../Form.module.scss'
 
 const thumbsContainer: React.CSSProperties = {
   width: '640px',
@@ -33,6 +34,7 @@ const img: React.CSSProperties = {
 const UploadPhotos = () => {
   const { updateFormData, formData } = useFormContext()
   const [files, setFiles] = useState<{ preview: string }[]>([])
+  const [isContentLong, setIsContentLong] = useState(false)
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: {
       'image/*': [],
@@ -101,10 +103,26 @@ const UploadPhotos = () => {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview))
-  }, [])
+  }, [files])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsContentLong(window.innerHeight < document.body.scrollHeight)
+    }
+
+    window.addEventListener('resize', handleResize)
+    handleResize() // Check initially
+    return () => {
+      window.removeEventListener('resize', handleResize) // Remove the event listener when the component is unmounted
+    }
+  }, [files])
 
   return (
-    <div>
+    <div
+      className={`${
+        isContentLong ? 'flex justify-center' : styles.center
+      } py-10   `}
+    >
       <div className="flex flex-col gap-10">
         <div>
           <h5 className="font-semibold mb-2">Choose at least 5 photos</h5>
