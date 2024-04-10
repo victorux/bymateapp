@@ -55,7 +55,7 @@ const FormContext = createContext<ContextProps>({
     price: 0,
     deposit: 0,
     bills: null,
-    duration: null,
+    duration: 'flex',
     moveInDate: '',
     moveOutDate: '',
     preferences: [],
@@ -146,7 +146,7 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     price: 0,
     deposit: 0,
     bills: null,
-    duration: null,
+    duration: 'flex',
     moveInDate: '',
     moveOutDate: '',
     preferences: [],
@@ -162,7 +162,13 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <FormContext.Provider
-      value={{ page, setPage, title, formData, updateFormData }}
+      value={{
+        page,
+        setPage,
+        title,
+        formData: formData as FormData,
+        updateFormData,
+      }}
     >
       {children}
     </FormContext.Provider>

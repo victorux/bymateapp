@@ -59,7 +59,7 @@ export interface FormData {
   price: number
   deposit: number
   bills: 'included' | 'partial' | null
-  duration: 'Flexible' | 'Fixed' | '12 months' | '6 months' | '3 months' | null
+  duration: 'flex' | 'fix' | 'year'
   moveInDate: string
   moveOutDate: string
   preferences: string[]
