@@ -55,21 +55,26 @@ const Price = () => {
         </div>
         {/* Deposit */}
         <div className="flex flex-col relative w-full">
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex items-start justify-start gap-4">
             <label htmlFor="deposit" className="text-xl font-medium mb-2">
-              Deposit
+              Is deposit required?
             </label>
             <div
               onClick={() => setIsDeposit(!isDeposit)}
-              className="cursor-pointer w-[60px] p-1 border border-neutral-400 rounded-full"
+              className={`animate-all flex gap-2 cursor-pointer w-[64px] p-1 border border-neutral-400 rounded-full ${
+                isDeposit ? 'flex-row-reverse' : null
+              }`}
             >
               <div
                 className={`transition-all w-[21px] h-[21px] rounded-full   ${
-                  isDeposit
-                    ? 'bg-secondary-400 ml-auto'
-                    : 'bg-neutral-500 mr-auto'
+                  isDeposit ? 'bg-secondary-400' : 'bg-neutral-500'
                 }`}
               />
+              {isDeposit ? (
+                <div className="text-sm text-secondary-400">Yes</div>
+              ) : (
+                <div className="text-sm">No</div>
+              )}
             </div>
           </div>
           {isDeposit && (
@@ -89,10 +94,10 @@ const Price = () => {
           )}
         </div>
         {/* End Deposit */}
-        <h6 className="text-xl font-medium">
+        <h6 className="self-start text-xl font-medium">
           Are bills included in rental price?
         </h6>
-        <div className="flex gap-4 items-center">
+        <div className="self-start grid gap-6 grid-cols-2 max-w-[440px]">
           <CustomRadioButton
             title="Included"
             icon={<Invoice size={32} />}
