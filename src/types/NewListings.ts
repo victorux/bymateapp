@@ -57,8 +57,8 @@ export interface FormData {
   title: string
   description: string
   price: number
-  deposit: number | null
-  bills: 'Included' | 'Not included' | 'Partially included' | null
+  deposit: number
+  bills: 'included' | 'partial' | null
   duration: 'Flexible' | 'Fixed' | '12 months' | '6 months' | '3 months' | null
   moveInDate: string
   moveOutDate: string

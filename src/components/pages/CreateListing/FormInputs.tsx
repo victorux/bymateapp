@@ -2,6 +2,7 @@ import useFormContext from '../../../hooks/useFormContext'
 import Step1About from './steps/0/Step1About'
 import PropertyType from './steps/1/PropertyType'
 import GiveDescription from './steps/10/GiveDescription'
+import Price from './steps/11/Price'
 import SpaceType from './steps/2/SpaceType'
 import EnterAddress from './steps/3/EnterAddress'
 import Baths from './steps/4/Baths'
@@ -30,6 +31,7 @@ const FormInputs = () => {
     8: <Step3Finish />,
     9: <GiveTitle />,
     10: <GiveDescription />,
+    11: <Price />,
   }
 
   return <div>{displayStep[page]}</div>
