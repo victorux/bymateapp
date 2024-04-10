@@ -17,9 +17,11 @@ const Duration = () => {
 
   return (
     <div className={styles.center}>
-      <div className="container flex flex-col mt-16 items-center">
-        <h5>Duration and available date</h5>
-        <div className="flex flex-col gap-4 mt-8">
+      <div className="container max-w-[448px] flex flex-col mt-16 items-center gap-10">
+        <div className="self-start">
+          <h5>Duration and available date</h5>
+        </div>
+        <div className="flex flex-col gap-4">
           <CardButton
             onClick={() => handleClick('flex')}
             icon={<ApproximateEquals size={32} />}
@@ -41,6 +43,29 @@ const Duration = () => {
             description="An annual commitment is required."
             selected={formData?.duration === 'year'}
           />
+        </div>
+        <div className="self-start flex flex-row justify-between gap-6">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="moveInDate">Move In Date</label>
+            <input
+              type="date"
+              name="moveInDate"
+              id="moveInDate"
+              className="border-2 rounded-xl py-2 px-4 border-neutral-300"
+            />
+          </div>
+          {/* Move Out Date */}
+          {formData?.duration === 'fix' && (
+            <div className="flex flex-col gap-2">
+              <label>Move Out Date</label>
+              <input
+                type="date"
+                id="moveOutDate"
+                name="moveOutDate"
+                className="border-2 rounded-xl py-2 px-4 border-neutral-300"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
