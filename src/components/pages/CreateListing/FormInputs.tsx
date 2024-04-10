@@ -4,6 +4,7 @@ import PropertyType from './steps/1/PropertyType'
 import GiveDescription from './steps/10/GiveDescription'
 import Price from './steps/11/Price'
 import Duration from './steps/12/Duration'
+import PreviewAndPublish from './steps/13/PreviewAndPublish'
 import SpaceType from './steps/2/SpaceType'
 import EnterAddress from './steps/3/EnterAddress'
 import Baths from './steps/4/Baths'
@@ -34,6 +35,7 @@ const FormInputs = () => {
     10: <GiveDescription />,
     11: <Price />,
     12: <Duration />,
+    13: <PreviewAndPublish />,
   }
 
   return <div>{displayStep[page]}</div>
