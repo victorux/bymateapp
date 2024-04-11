@@ -8,6 +8,7 @@ import UserProfile from './components/pages/Profile/UserProfile'
 import MyListings from './components/pages/MyListings/MyListings'
 import Layout from './components/layout/Layout'
 import Form from './components/pages/CreateListing/Form'
+import Login from './components/pages/Login/Login'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: '/create-listing',
         element: <Form />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
         errorElement: <ErrorPage />,
       },
     ],
