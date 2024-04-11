@@ -1,12 +1,15 @@
-export const login = (req, res) => {
-  // check if the user exists
-  // if not, return an error
-  // compare the password
-  // if the password is incorrect, return an error
-  // generate a token
-  // send the token to the user
-  // return the user
-};
+import passport from "passport";
+
+export const login = () =>
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  });
+
+export const loginCallback = () =>
+  passport.authenticate("google", {
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: `${process.env.CLIENT_URL}/login`,
+  });
 
 export const register = (req, res) => {
   // check if the user already exists
@@ -19,6 +22,6 @@ export const register = (req, res) => {
 };
 
 export const logout = (req, res) => {
-  // remove the token
-  // return a success message
+  req.logout();
+  res.redirect(CLIENT_URL);
 };
