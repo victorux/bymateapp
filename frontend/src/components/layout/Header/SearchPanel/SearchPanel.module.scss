@@ -1,0 +1,26 @@
+.form {
+  @apply flex flex-row items-stretch h-14 border rounded-full border-neutral-100 overflow-hidden relative;
+}
+
+.title {
+  @apply block text-sm text-black font-semibold font-display;
+}
+
+.search__input {
+  @apply bg-primary-100 max-w-32 bg-opacity-0 focus:outline-none text-black text-base font-body;
+}
+
+.divider {
+  @apply flex flex-col items-center justify-center;
+
+  span {
+    @apply w-px h-4 block bg-neutral-100;
+  }
+}
+
+.what__container {
+  @apply flex-col flex-grow flex items-center justify-center hover:bg-neutral-100 rounded-full pl-6 pr-32 transition;
+}
+.button {
+  @apply bg-primary-300 p-3 rounded-full absolute right-[3px] top-[3px] hover:bg-primary-200 transition;
+}
