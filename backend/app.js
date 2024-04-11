@@ -1,8 +1,10 @@
-const express = require("express");
+import userRoutes from "./routes/users.js";
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import mysql from "mysql2";
+
 const app = express();
-const cors = require("cors");
-const dotenv = require("dotenv");
-const mysql = require("mysql2");
 dotenv.config();
 
 app.use(cors());
@@ -20,34 +22,8 @@ db.addListener("error", (err) => {
   console.log(err);
 });
 
-// create
-app.post("/books", (req, res) => {
-  const { title, description, cover } = req.body;
-  db.query(
-    "INSERT INTO books (title, description, cover) VALUES (?, ?, ?)",
-    [title, description, cover],
-    (err, data) => {
-      if (err) return res.json(err);
-      return res.json("Book added successfully");
-    }
-  );
-});
-
-// read
-
-app.get("/", (req, res) => {
-  res.json("Hello this is the backend");
-});
-
-app.get("/books", (req, res) => {
-  const q = "SELECT * FROM books";
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-// update
+// Routes
+app.use("/api/users", userRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
