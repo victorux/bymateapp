@@ -5,9 +5,10 @@ import { COLORS } from '../../../../constants/colors'
 import DesktopMenu from './DesktopMenu'
 import Button from '../../../common/Buttons/Button'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function Menu() {
-  const user = false
+  const [user, setUser] = useState(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuRef = useRef(null)
@@ -33,6 +34,28 @@ export default function Menu() {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  useEffect(() => {
+    const getUser = () => {
+      axios
+        .get('http://localhost:8080/api/auth/login/success', {
+          withCredentials: true,
+        })
+        .then((res) => {
+          if (res.status === 200) return res
+          throw new Error('Authentication failed')
+        })
+        .then((resObj) => {
+          setUser(resObj.data.user)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    getUser()
+  }, [])
+
+  console.log(user)
 
   return user ? (
     <div className="relative" ref={menuRef}>

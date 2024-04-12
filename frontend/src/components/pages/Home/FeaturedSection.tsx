@@ -48,7 +48,7 @@ const listings = [
     available: 'Flexible',
   },
   {
-    id: '5',
+    id: '6',
     title: 'Modern Townhouse',
     description:
       'Live in style in this modern townhouse with all the amenities.',

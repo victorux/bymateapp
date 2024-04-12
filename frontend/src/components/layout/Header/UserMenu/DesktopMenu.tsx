@@ -5,6 +5,10 @@ interface DesktopMenuProps {
 }
 
 function DesktopMenu({ isOpen }: DesktopMenuProps) {
+  const handleSignOut = (e: React.MouseEvent) => {
+    e.preventDefault()
+    window.open('http://localhost:8080/api/auth/logout', '_self')
+  }
   return (
     <div
       className={`${isOpen ? styles.visible : styles.hidden} ${
@@ -15,7 +19,9 @@ function DesktopMenu({ isOpen }: DesktopMenuProps) {
       <a href="/my-listings">Manage listing</a>
       <a href="/messages">Messages</a>
       <a href="/settings">Settings</a>
-      <a href="/">Sign out</a>
+      <a href="#" onClick={handleSignOut}>
+        Sign out
+      </a>
     </div>
   )
 }
