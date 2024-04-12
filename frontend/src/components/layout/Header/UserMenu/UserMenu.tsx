@@ -5,10 +5,14 @@ import { COLORS } from '../../../../constants/colors'
 import DesktopMenu from './DesktopMenu'
 import Button from '../../../common/Buttons/Button'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { useUserContext } from '../../../../hooks/useUserContext'
+
+// import axios from 'axios'
 
 export default function Menu() {
-  const [user, setUser] = useState(null)
+  const { user, getUserAndUpdate } = useUserContext()
+
+  // const [user, setUser] = useState(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuRef = useRef(null)
@@ -16,6 +20,11 @@ export default function Menu() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -36,26 +45,8 @@ export default function Menu() {
   }, [])
 
   useEffect(() => {
-    const getUser = () => {
-      axios
-        .get('http://localhost:8080/api/auth/login/success', {
-          withCredentials: true,
-        })
-        .then((res) => {
-          if (res.status === 200) return res
-          throw new Error('Authentication failed')
-        })
-        .then((resObj) => {
-          setUser(resObj.data.user)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    }
-    getUser()
+    getUserAndUpdate()
   }, [])
-
-  console.log(user)
 
   return user ? (
     <div className="relative" ref={menuRef}>
@@ -63,7 +54,7 @@ export default function Menu() {
         <List size={24} color={COLORS.black} />
         <User size={24} color={COLORS.black} />
       </div>
-      <DesktopMenu isOpen={isMenuOpen} />
+      <DesktopMenu isOpen={isMenuOpen} closeMenu={closeMenu} />
     </div>
   ) : (
     <Button border onClick={() => navigate('/login')}>
