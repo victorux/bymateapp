@@ -1,13 +1,5 @@
 export interface FormData {
-  propertyType:
-    | 'House'
-    | 'Apartment'
-    | 'Condo'
-    | 'Townhouse'
-    | 'Loft'
-    | 'Guesthouse'
-    | 'Other'
-    | string
+  propertyType: 'house' | 'apartment' | string
   spaceType: 'Entire' | 'Private' | 'Shared' | null
   address: {
     county: string
