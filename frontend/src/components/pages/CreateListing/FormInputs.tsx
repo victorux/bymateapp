@@ -1,4 +1,3 @@
-import useFormContext from '../../../hooks/useFormContext'
 import Step1About from './steps/0/Step1About'
 import PropertyType from './steps/1/PropertyType'
 import GiveDescription from './steps/10/GiveDescription'
@@ -13,9 +12,12 @@ import Amenities from './steps/6/Amenities'
 import UploadPhotos from './steps/7/UploadPhotos'
 import Step3Finish from './steps/8/Step3Finish'
 import GiveTitle from './steps/9/GiveTitle'
+import { useLocation } from 'react-router-dom'
 
 const FormInputs = () => {
-  const { page } = useFormContext()
+  // Get the current step from the URL
+  const location = useLocation()
+  const stepFromURL = Number(location.pathname.split('/').pop())
 
   interface DisplayStep {
     [key: number]: JSX.Element
@@ -38,7 +40,7 @@ const FormInputs = () => {
     13: <PreviewAndPublish />,
   }
 
-  return <div>{displayStep[page]}</div>
+  return <div>{displayStep[stepFromURL]}</div>
 }
 
 export default FormInputs

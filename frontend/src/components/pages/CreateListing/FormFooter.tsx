@@ -1,18 +1,29 @@
-import Button from '../../common/Buttons/Button'
-import { useState, useEffect } from 'react'
 import useFormContext from '../../../hooks/useFormContext'
+import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import Button from '../../common/Buttons/Button'
 
 const FormFooter = () => {
+  const navigate = useNavigate()
   const [isContentLong, setIsContentLong] = useState(false)
 
-  const { setPage, page, title } = useFormContext()
+  const currentPath = useLocation().pathname
+  // Get the form path from the URL without the current step
+  const formPathURL = currentPath.substring(0, currentPath.lastIndexOf('/'))
+  // Get the current step from the URL
+  const stepFromURL = Number(location.pathname.split('/').pop())
+
+  const { title } = useFormContext()
 
   const backHandler = () => {
-    page === 0 ? null : setPage(page - 1)
+    stepFromURL === 0 ? null : navigate(`${formPathURL}/${stepFromURL - 1}`)
   }
 
   const nextHandler = () => {
-    Object.keys(title).length - 1 === page ? null : setPage(page + 1)
+    console.log(Object.keys(title).length - 1)
+    Object.keys(title).length - 1 === stepFromURL
+      ? navigate('/')
+      : navigate(`${formPathURL}/${stepFromURL + 1}`)
   }
 
   useEffect(() => {

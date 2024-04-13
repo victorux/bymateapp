@@ -62,14 +62,10 @@ const FormContext = createContext<ContextProps>({
     references: [],
   },
   title: {},
-  page: 0,
-  setPage: () => null,
   updateFormData: () => null,
 })
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
-  const [page, setPage] = useState(0)
-
   const title: { [key: number]: string } = {
     // Step 1
     0: 'Step 1: About the Property',
@@ -88,9 +84,7 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     11: 'Price, Deposit, Bills',
     12: 'Duration, Move-in Date, Move-out Date',
     // Last Step
-    13: 'Step 4: finish up',
-    14: 'Preferences: Smoking, Pets, References',
-    15: 'Preview and Publish',
+    13: 'Preview and Publish',
   }
 
   const [formData, setData] = useState({
@@ -163,8 +157,6 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <FormContext.Provider
       value={{
-        page,
-        setPage,
         title,
         formData: formData as FormData,
         updateFormData,

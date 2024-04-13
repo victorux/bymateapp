@@ -65,6 +65,4 @@ export interface ContextProps {
     value: FormData[keyof FormData]
   ) => void
   readonly title: { [key: number]: string }
-  readonly page: number
-  readonly setPage: (page: number) => void
 }

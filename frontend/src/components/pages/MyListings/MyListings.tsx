@@ -41,10 +41,6 @@ function MyListings() {
   const navigate = useNavigate()
   const { user } = useUserContext()
 
-  // const newListingButtonHandler = () => {
-  //   navigate('/create-listing')
-  // }
-
   const activeButtonHandler = () => {
     console.log('active btn clicked')
   }
@@ -63,7 +59,7 @@ function MyListings() {
       })
       .then((res) => {
         res.data.listingId &&
-          navigate(`/create-listing/${res.data.listingId}/step/1`)
+          navigate(`/create-listing/${res.data.listingId}/step/0`)
       })
       .catch((err) => {
         console.log(err)
