@@ -1,8 +1,9 @@
 import express from "express";
-import {} from "../controllers/listing.js";
+import { createListing } from "../controllers/listing.js";
 
 const router = express.Router();
 
-router.get("");
+// create a new listing in the database with draft status
+router.post("/create-new", createListing);
 
 export default router;
