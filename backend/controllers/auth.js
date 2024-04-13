@@ -1,27 +1,32 @@
 import passport from "passport";
+import dotenv from "dotenv";
+dotenv.config();
 
+// LOGIN
 export const login = () =>
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-  });
+  passport.authenticate("google", { scope: ["profile"] });
 
+//
+export const loginSuccess = async (req, res) => {
+  if (req.user) {
+    res.status(200).json({
+      success: true,
+      message: "successfull",
+      user: req.user,
+      //   cookies: req.cookies
+    });
+  }
+};
+
+// LOGIN CALLBACK
 export const loginCallback = () =>
   passport.authenticate("google", {
     successRedirect: process.env.CLIENT_URL,
-    failureRedirect: `${process.env.CLIENT_URL}/login`,
+    failureRedirect: "/login/failed",
   });
 
-export const register = (req, res) => {
-  // check if the user already exists
-  // if not, create a new user
-  // hash the password
-  // save the user to the database
-  // generate a token
-  // send the token to the user
-  // return the user
-};
-
+// LOGOUT
 export const logout = (req, res) => {
   req.logout();
-  res.redirect(CLIENT_URL);
+  res.redirect(process.env.CLIENT_URL);
 };

@@ -10,8 +10,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+
 app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+  cookieSession({
+    name: "session",
+    keys: ["victor"],
+    maxAge: 24 * 60 * 60 * 100,
+  })
 );
 // cors middleware
 app.use(
