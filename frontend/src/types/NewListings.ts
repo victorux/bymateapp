@@ -1,6 +1,6 @@
 export interface FormData {
   propertyType: 'house' | 'apartment' | string
-  spaceType: 'Entire' | 'Private' | 'Shared' | null
+  spaceType: 'entire' | 'private' | 'shared' | null
   address: {
     county: string
     street: string
