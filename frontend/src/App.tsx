@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: '/user/:id',
+        path: '/user/:id/profile',
         element: <UserProfile />,
         errorElement: <ErrorPage />,
       },
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: '/create-listing',
+        path: '/create-listing/:id/step/:step',
         element: <Form />,
         errorElement: <ErrorPage />,
       },

@@ -54,7 +54,7 @@ export default function Menu() {
         <List size={24} color={COLORS.black} />
         <User size={24} color={COLORS.black} />
       </div>
-      <DesktopMenu isOpen={isMenuOpen} closeMenu={closeMenu} />
+      <DesktopMenu user={user} isOpen={isMenuOpen} closeMenu={closeMenu} />
     </div>
   ) : (
     <Button border onClick={() => navigate('/login')}>
