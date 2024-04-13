@@ -3,6 +3,8 @@ import { CaretDown, Eye, Plus } from '@phosphor-icons/react'
 import styles from './MyListings.module.scss'
 import { COLORS } from '../../../constants/colors'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useUserContext } from '../../../hooks/useUserContext'
 
 const data = [
   {
@@ -20,7 +22,7 @@ const data = [
     available: 'Flexible',
   },
   {
-    id: '1',
+    id: '2',
     views: 144,
     title: 'Spacious Studio Apartment',
     description: 'A spacious studio apartment with a beautiful view.',
@@ -37,10 +39,11 @@ const data = [
 
 function MyListings() {
   const navigate = useNavigate()
+  const { user } = useUserContext()
 
-  const newListingButtonHandler = () => {
-    navigate('/create-listing')
-  }
+  // const newListingButtonHandler = () => {
+  //   navigate('/create-listing')
+  // }
 
   const activeButtonHandler = () => {
     console.log('active btn clicked')
@@ -50,6 +53,21 @@ function MyListings() {
   }
   const deactivatedButtonHandler = () => {
     console.log('deactivated btn clicked')
+  }
+
+  const createNewListing = () => {
+    axios
+      .post('http://localhost:8080/api/listings/create-new', {
+        user_id: user && user.id,
+        created_at: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      })
+      .then((res) => {
+        res.data.listingId &&
+          navigate(`/create-listing/${res.data.listingId}/step/1`)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   return (
@@ -89,7 +107,7 @@ function MyListings() {
           color="primary"
           rounded="rounded-md"
           size="small"
-          onClick={newListingButtonHandler}
+          onClick={createNewListing}
           icon={<Plus size={16} color="#ffffff" />}
         >
           Create New Listing

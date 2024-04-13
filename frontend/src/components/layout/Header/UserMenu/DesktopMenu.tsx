@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom'
 interface DesktopMenuProps {
   closeMenu: () => void
   isOpen: boolean
+  user: { id: string }
 }
 
-function DesktopMenu({ isOpen, closeMenu }: DesktopMenuProps) {
+function DesktopMenu({ isOpen, closeMenu, user }: DesktopMenuProps) {
   const navigate = useNavigate()
 
   const handleSignOut = (e: React.MouseEvent) => {
@@ -25,7 +26,9 @@ function DesktopMenu({ isOpen, closeMenu }: DesktopMenuProps) {
         styles.desktopMenu
       }`}
     >
-      <div onClick={() => handleClick('/user/1')}>My Profile</div>
+      <div onClick={() => handleClick(`/user/${user.id}/profile`)}>
+        My Profile
+      </div>
       <div onClick={() => handleClick('/my-listings')}>Manage listing</div>
       <div onClick={() => handleClick('/messages')}>Messages</div>
       <div onClick={() => handleClick('/settings')}>Settings</div>
