@@ -18,7 +18,7 @@ const Footer = () => {
   }, [])
 
   // If the current path is '/create-listing', hide the footer
-  if (location.pathname === '/create-listing') {
+  if (location.pathname.startsWith('/create-listing')) {
     return null
   } else {
     return (

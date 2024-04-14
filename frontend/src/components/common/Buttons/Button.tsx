@@ -23,11 +23,15 @@ function Button({
   icon,
   iconPosition = 'left',
 }: ButtonProps) {
-  const classNames = `${styles.Button} ${styles[rounded || 'rounded-md']} ${
-    styles[size || 'medium']
-  } ${styles[color || 'transparent']} ${
-    styles[border ? 'border' : 'no-border']
-  } ${disabled ? styles.disabled : ''}`
+  const classNames = disabled
+    ? `${styles.Button} ${styles.disabled} ${styles[size || 'medium']} ${
+        styles[rounded || 'rounded-md']
+      }`
+    : `${styles.Button} ${styles[rounded || 'rounded-md']} ${
+        styles[size || 'medium']
+      } ${styles[color || 'transparent']} ${
+        styles[border ? 'border' : 'no-border']
+      }`
   return (
     <button
       disabled={disabled}

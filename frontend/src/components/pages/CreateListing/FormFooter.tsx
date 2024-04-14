@@ -2,10 +2,12 @@ import useFormContext from '../../../hooks/useFormContext'
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../common/Buttons/Button'
+import useListingId from '../../../hooks/useListingId'
 
-const FormFooter = () => {
+const FormFooter = ({ canNextPage }: { canNextPage: boolean }) => {
   const navigate = useNavigate()
   const [isContentLong, setIsContentLong] = useState(false)
+  const stepFromUrl = useListingId()
 
   const currentPath = useLocation().pathname
   // Get the form path from the URL without the current step
@@ -22,7 +24,7 @@ const FormFooter = () => {
   const nextHandler = () => {
     console.log(Object.keys(title).length - 1)
     Object.keys(title).length - 1 === stepFromURL
-      ? navigate('/')
+      ? alert('Submit')
       : navigate(`${formPathURL}/${stepFromURL + 1}`)
   }
 
@@ -52,8 +54,9 @@ const FormFooter = () => {
         size="medium"
         rounded="rounded-md"
         onClick={nextHandler}
+        disabled={!canNextPage}
       >
-        Next
+        {stepFromURL === 13 ? 'Publish' : 'Next'}
       </Button>
     </div>
   )

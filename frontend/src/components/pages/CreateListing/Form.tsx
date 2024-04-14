@@ -1,5 +1,4 @@
 import { FormProvider } from '../../../context/FormContext'
-import FormFooter from './FormFooter'
 import FormInputs from './FormInputs'
 
 const AddForm = () => {
@@ -7,7 +6,6 @@ const AddForm = () => {
     <>
       <FormProvider>
         <FormInputs />
-        <FormFooter />
       </FormProvider>
     </>
   )

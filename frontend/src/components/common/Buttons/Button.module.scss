@@ -6,7 +6,7 @@
   justify-items: center;
   align-items: center;
   gap: 8px;
-  cursor: pointer !important;
+  cursor: pointer;
 
   &.primary {
     @apply bg-primary-300 text-white;
@@ -55,5 +55,10 @@
 
   &.rounded-md {
     border-radius: 8px;
+  }
+
+  &.disabled {
+    @apply bg-neutral-400 text-white opacity-50;
+    cursor: not-allowed !important;
   }
 }

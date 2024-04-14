@@ -14,7 +14,7 @@ export default function Header() {
     <div className="border-b-[1px] border-neutral-100">
       <div className="container flex items-center justify-between py-8">
         <Logo />
-        {location.pathname === '/create-listing' ? (
+        {location.pathname.startsWith('/create-listing') ? (
           <Button size="small" border onClick={handleClick}>
             Save to Draft and Exit
           </Button>

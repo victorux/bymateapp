@@ -3,6 +3,7 @@ import { useDropzone } from 'react-dropzone'
 import { CameraPlus, Images } from '@phosphor-icons/react'
 import useFormContext from '../../../../../hooks/useFormContext'
 import styles from '../../Form.module.scss'
+import FormFooter from '../../FormFooter'
 
 const thumbsContainer: React.CSSProperties = {
   width: '640px',
@@ -118,54 +119,59 @@ const UploadPhotos = () => {
   }, [files])
 
   return (
-    <div
-      className={`${
-        isContentLong ? 'flex justify-center' : styles.center
-      } py-10   `}
-    >
-      <div className="flex flex-col gap-10">
-        <div>
-          <h5 className="font-semibold mb-2">Choose at least 5 photos</h5>
-          <p className="text-neutral-500">Upload photos of your property</p>
-        </div>
-        {files.length === 0 ? (
-          <div
-            {...getRootProps()}
-            className={`rounded-xl border-dashed border-2 w-[640px] h-[456px] flex flex-col items-center justify-center border-neutral-500 text-center ${
-              isDragActive ? 'border-secondary-300' : 'border-neutral-500'
-            } `}
-          >
-            <input {...getInputProps()} />
-            {isDragActive ? (
-              <p>Drop the files here ...</p>
-            ) : (
-              <div className="flex flex-col gap-4 items-center">
-                <Images size={60} />
-                <p>
-                  Drag 'n' drop some files here, or click to{' '}
-                  <span className="underline cursor-pointer">select files</span>
-                </p>
-              </div>
-            )}
+    <>
+      <div
+        className={`${
+          isContentLong ? 'flex justify-center' : styles.center
+        } py-10   `}
+      >
+        <div className="flex flex-col gap-10">
+          <div>
+            <h5 className="font-semibold mb-2">Choose at least 5 photos</h5>
+            <p className="text-neutral-500">Upload photos of your property</p>
           </div>
-        ) : null}
+          {files.length === 0 ? (
+            <div
+              {...getRootProps()}
+              className={`rounded-xl border-dashed border-2 w-[640px] h-[456px] flex flex-col items-center justify-center border-neutral-500 text-center ${
+                isDragActive ? 'border-secondary-300' : 'border-neutral-500'
+              } `}
+            >
+              <input {...getInputProps()} />
+              {isDragActive ? (
+                <p>Drop the files here ...</p>
+              ) : (
+                <div className="flex flex-col gap-4 items-center">
+                  <Images size={60} />
+                  <p>
+                    Drag 'n' drop some files here, or click to{' '}
+                    <span className="underline cursor-pointer">
+                      select files
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : null}
 
-        <aside {...getRootProps()} style={thumbsContainer}>
-          {thumbs}
-          {files.length === 1
-            ? renderDivs(4)
-            : files.length === 2
-            ? renderDivs(3)
-            : files.length === 3
-            ? renderDivs(2)
-            : files.length === 4
-            ? renderDivs(1)
-            : files.length >= 5
-            ? renderDivs(1)
-            : null}
-        </aside>
+          <aside {...getRootProps()} style={thumbsContainer}>
+            {thumbs}
+            {files.length === 1
+              ? renderDivs(4)
+              : files.length === 2
+              ? renderDivs(3)
+              : files.length === 3
+              ? renderDivs(2)
+              : files.length === 4
+              ? renderDivs(1)
+              : files.length >= 5
+              ? renderDivs(1)
+              : null}
+          </aside>
+        </div>
       </div>
-    </div>
+      <FormFooter canNextPage />
+    </>
   )
 }
 
