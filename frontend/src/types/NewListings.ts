@@ -54,8 +54,6 @@ export interface FormData {
   duration: 'flex' | 'fix' | 'year'
   moveInDate: string
   moveOutDate: string
-  preferences: string[]
-  references: string[]
 }
 
 export interface ContextProps {

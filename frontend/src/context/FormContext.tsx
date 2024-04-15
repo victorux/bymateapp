@@ -58,8 +58,6 @@ const FormContext = createContext<ContextProps>({
     duration: 'flex',
     moveInDate: '',
     moveOutDate: '',
-    preferences: [],
-    references: [],
   },
   title: {},
   updateFormData: () => null,
@@ -143,8 +141,6 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     duration: 'flex',
     moveInDate: '',
     moveOutDate: '',
-    preferences: [],
-    references: [],
   })
 
   const updateFormData = (

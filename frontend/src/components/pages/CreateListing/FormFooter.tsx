@@ -2,18 +2,17 @@ import useFormContext from '../../../hooks/useFormContext'
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../common/Buttons/Button'
-import useListingId from '../../../hooks/useListingId'
+import axios from 'axios'
 
 const FormFooter = ({ canNextPage }: { canNextPage: boolean }) => {
+  const { formData } = useFormContext()
   const navigate = useNavigate()
   const [isContentLong, setIsContentLong] = useState(false)
-  const stepFromUrl = useListingId()
 
   const currentPath = useLocation().pathname
-  // Get the form path from the URL without the current step
   const formPathURL = currentPath.substring(0, currentPath.lastIndexOf('/'))
-  // Get the current step from the URL
   const stepFromURL = Number(location.pathname.split('/').pop())
+  const listingId = Number(location.pathname.split('/')[2])
 
   const { title } = useFormContext()
 
@@ -22,10 +21,26 @@ const FormFooter = ({ canNextPage }: { canNextPage: boolean }) => {
   }
 
   const nextHandler = () => {
-    console.log(Object.keys(title).length - 1)
     Object.keys(title).length - 1 === stepFromURL
-      ? alert('Submit')
+      ? publishListing()
       : navigate(`${formPathURL}/${stepFromURL + 1}`)
+  }
+
+  const publishListing = async () => {
+    axios
+      .put('http://localhost:8080/api/listings/publish-listing', {
+        listingData: formData,
+        listingId: listingId,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log('Listing published')
+          // navigate('/listings')
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   useEffect(() => {
