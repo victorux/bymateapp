@@ -1,4 +1,5 @@
 import { db } from "../connect.js";
+import { flattenObject } from "../utils/flattenObject.js";
 
 export const createListing = (req, res) => {
   const { user_id, created_at } = req.body;
@@ -28,4 +29,39 @@ export const createListing = (req, res) => {
       });
     });
   });
+};
+
+// Publish new listing
+export const publishListing = (req, res) => {
+  const clientObject = req.body.listingData;
+  const listingId = req.body.listingId;
+  const newListingData = flattenObject(clientObject);
+  // get the property_id from the table listing where id of listing is litingId
+  db.query(
+    "SELECT property_id FROM listing WHERE id = ?",
+    listingId,
+    function (err, result) {
+      if (err) {
+        return res.status(500).json({
+          message: "An error occurred while fetching the property_id",
+        });
+      }
+
+      const property_id = result[0].property_id;
+      // Update the property table with id = property_id
+      db.query(
+        "UPDATE property SET ? WHERE id = ?",
+        [newListingData, property_id],
+        function (err, result) {
+          if (err) {
+            console.log(err);
+            return res.status(500).json({
+              message: "An error occurred while updating the property table",
+            });
+          }
+          console.log(result);
+        }
+      );
+    }
+  );
 };
