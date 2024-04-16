@@ -9,6 +9,7 @@ import MyListings from './components/pages/MyListings/MyListings'
 import Layout from './components/layout/Layout'
 import Form from './components/pages/CreateListing/Form'
 import Login from './components/pages/Login/Login'
+import Messages from './components/pages/Messages/Messages'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: '/rooms',
         element: <Rooms />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/messages',
+        element: <Messages />,
         errorElement: <ErrorPage />,
       },
       {
