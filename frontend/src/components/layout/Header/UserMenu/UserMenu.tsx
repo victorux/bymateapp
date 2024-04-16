@@ -1,10 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { List, User } from '@phosphor-icons/react'
+import { List, SignIn, User } from '@phosphor-icons/react'
 import styles from './UserMenu.module.scss'
 import { COLORS } from '../../../../constants/colors'
 import DesktopMenu from './DesktopMenu'
-import Button from '../../../common/Buttons/Button'
-import { useNavigate } from 'react-router-dom'
 import { useUserContext } from '../../../../hooks/useUserContext'
 
 // import axios from 'axios'
@@ -24,8 +22,6 @@ export default function Menu() {
   const closeMenu = () => {
     setIsMenuOpen(false)
   }
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -57,8 +53,8 @@ export default function Menu() {
       <DesktopMenu user={user} isOpen={isMenuOpen} closeMenu={closeMenu} />
     </div>
   ) : (
-    <Button border onClick={() => navigate('/login')}>
-      Sign In
-    </Button>
+    <div className="flex flex-row gap-2">
+      <SignIn size={24} /> <a href="/login">Login</a>
+    </div>
   )
 }
