@@ -47,25 +47,13 @@ const listings = [
     propertyType: 'Apartment',
     available: 'Flexible',
   },
-  {
-    id: '6',
-    title: 'Modern Townhouse',
-    description:
-      'Live in style in this modern townhouse with all the amenities.',
-    price: 2000,
-    image:
-      'https://randomwordgenerator.com/img/picture-generator/50e2dc464e4faa0df7c5d57bc32f3e7b1d3ac3e45658724e77267bd493_640.jpg',
-    listingType: 'Entire Place',
-    propertyType: 'Apartment',
-    available: 'Flexible',
-  },
 ]
 
 export default function FeaturedSection() {
   return (
     <div className="container text-center mt-20">
       <div className={styles.section__heading}>Featured Rooms</div>
-      <div className="grid grid-cols-5 gap-10 mt-10">
+      <div className="grid grid-cols-4 gap-10 mt-10">
         {listings.map((listing) => (
           <ListingCard key={listing.id} listing={listing} />
         ))}
