@@ -28,14 +28,17 @@ const FormFooter = ({ canNextPage }: { canNextPage: boolean }) => {
 
   const publishListing = async () => {
     axios
-      .put('http://localhost:8080/api/listings/publish-listing', {
-        listingData: formData,
-        listingId: listingId,
-      })
+      .put(
+        'https://bymate-server-874ca7821918.herokuapp.com/api/listings/publish-listing',
+        {
+          listingData: formData,
+          listingId: listingId,
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           console.log('Listing published')
-          // navigate('/listings')
+          navigate('/rooms/1')
         }
       })
       .catch((err) => {

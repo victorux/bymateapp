@@ -53,10 +53,13 @@ function MyListings() {
 
   const createNewListing = () => {
     axios
-      .post('http://localhost:8080/api/listings/create-new', {
-        user_id: user && user.id,
-        created_at: new Date().toISOString().slice(0, 19).replace('T', ' '),
-      })
+      .post(
+        'https://bymate-server-874ca7821918.herokuapp.com/api/listings/create-new',
+        {
+          user_id: user && user.id,
+          created_at: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        }
+      )
       .then((res) => {
         res.data.listingId &&
           navigate(`/create-listing/${res.data.listingId}/step/0`)
