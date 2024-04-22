@@ -59,7 +59,9 @@ export const publishListing = (req, res) => {
               message: "An error occurred while updating the property table",
             });
           }
-          console.log(result);
+          res.status(200).json({
+            message: "Listing published successfully",
+          });
         }
       );
     }
