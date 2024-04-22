@@ -12,7 +12,10 @@ function DesktopMenu({ isOpen, closeMenu, user }: DesktopMenuProps) {
 
   const handleSignOut = (e: React.MouseEvent) => {
     e.preventDefault()
-    window.open('http://localhost:8080/api/auth/logout', '_self')
+    window.open(
+      'https://bymate-server-874ca7821918.herokuapp.com/api/auth/logout',
+      '_self'
+    )
   }
 
   const handleClick = (path: string) => {
