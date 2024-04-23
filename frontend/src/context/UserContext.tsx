@@ -23,9 +23,12 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getUserAndUpdate = useCallback(() => {
     axios
-      .get('http://localhost:8080/api/auth/login/success', {
-        withCredentials: true,
-      })
+      .get(
+        'https://bymate-server-874ca7821918.herokuapp.com/api/auth/login/success',
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         if (res.status === 200) return res
         throw new Error('Authentication failed')
@@ -51,19 +54,3 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 }
 
 export default UserContext
-
-// const getUserAndUpdate = () => {
-//   axios
-//     .get('http://localhost:8080/api/auth/login/success', {
-//       withCredentials: true,
-//     })
-//     .then((res) => {
-//       if (res.status === 200) return res
-//       throw new Error('Authentication failed')
-//     })
-//     .then((resObj) => {
-//       setUser(resObj.data.user)
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//     }
