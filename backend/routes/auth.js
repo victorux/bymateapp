@@ -9,7 +9,6 @@ import {
   loginCallback,
 } from "../controllers/auth.js"; // import controllers
 
-//// GOOGLE AUTH ROUTES:
 // LOGIN WITH GOOGLE
 router.get("/google", login());
 // LOGIN SUCCESS
