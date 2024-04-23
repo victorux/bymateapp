@@ -13,7 +13,7 @@ export const loginSuccess = async (req, res) => {
       success: true,
       message: "successfull",
       user: req.user,
-      //   cookies: req.cookies
+      cookies: req.cookies,
     });
   }
 };
