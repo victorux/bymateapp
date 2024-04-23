@@ -21,7 +21,7 @@ app.use(
 // cors middleware
 app.use(
   cors({
-    origin: "https://bymate.netlify.app",
+    origin: "*",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
