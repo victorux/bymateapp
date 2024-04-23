@@ -38,7 +38,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/listings", listingRoutes);
 app.use("/api/auth", authRouts);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
 // test
