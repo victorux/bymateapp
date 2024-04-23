@@ -21,7 +21,7 @@ app.use(
 // cors middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://bymate-server-874ca7821918.herokuapp.com",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
