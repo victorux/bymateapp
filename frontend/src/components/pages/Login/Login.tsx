@@ -3,7 +3,10 @@ import GoogleIcon from '../../../assets/icons/google.svg'
 
 const Login = () => {
   const handleClick = () => {
-    window.open('http://localhost:8080/api/auth/google', '_self')
+    window.open(
+      'https://bymate-server-874ca7821918.herokuapp.com/api/auth/google',
+      '_self'
+    )
   }
 
   const google_icon = <img width={32} src={GoogleIcon} alt="Google Icon" />
