@@ -44,6 +44,8 @@ export default function Menu() {
     getUserAndUpdate()
   }, [])
 
+  console.log(user)
+
   return user ? (
     <div className="relative" ref={menuRef}>
       <div className={styles.MenuButton} onClick={toggleMenu}>
