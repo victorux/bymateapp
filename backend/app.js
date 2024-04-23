@@ -21,7 +21,7 @@ app.use(
 // cors middleware
 app.use(
   cors({
-    origin: "https://bymate-server-874ca7821918.herokuapp.com",
+    origin: "https://bymate.netlify.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
